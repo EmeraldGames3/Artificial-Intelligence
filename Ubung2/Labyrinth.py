@@ -88,7 +88,6 @@ def dfs(labyrinth, start_node, goal_node):
 
 
 def astar(labyrinth, start_node, goal_node):
-    # Create a priority queue
     queue = PriorityQueue()
     queue.put(start_node, labyrinth.heuristic(start_node, goal_node))
     # Used for reconstructing the path at the end
@@ -110,7 +109,6 @@ def astar(labyrinth, start_node, goal_node):
             # Calculate the new cost to the neighbor
             new_cost = cost[current] + labyrinth.cost(current, neighbor)
 
-            # If the neighbor hasn't been visited or a cheaper path has been found
             if neighbor not in cost or new_cost < cost[neighbor]:
                 # Update the cost and path to the neighbor
                 cost[neighbor] = new_cost
